@@ -15,10 +15,12 @@ export class CharacterService {
   // query - Filtrar todos os personagens pela API ou por pesquisa de usuário
 
   searchCharacters(query='', page= 1){
-    return this.http.get<Character[]>
-    (`${environment.baseUrlAPI}/?name=${query}&page=${page}`
-    );
+    const filter = `${environment.baseUrlAPI}/?name=${query}&page=${page}`
+
+    return this.http.get<Character[]>(filter);
   }
 
-  getDetails(id:number){}
+  getDetails(id:number){
+    return this.http.get<Character>(`${environment.baseUrlAPI}/${id}`)
+  }
 }
