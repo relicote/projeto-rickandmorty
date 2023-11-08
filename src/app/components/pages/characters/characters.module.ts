@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 >>>>>>> parent of ee47cd3 (att imp e exp de characters.module.ts)
 
+// ESSA COISA QUE TÁ ME MATANDO
 @NgModule({
   declarations: [],
   imports: [
