@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CharactersListRoutingModule } from './characters-list-routing.module';
-import { CharactersListComponent } from './characters-list.component';
+import { CharactersListRoutingModule } from '@characters/characters-list/characters-list-routing.module';
+import { CharactersListComponent } from '@characters/characters-list/characters-list.component';
 
 
 @NgModule({
