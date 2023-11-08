@@ -5,11 +5,11 @@ import { CharactersListComponent } from '@characters/characters-list/characters-
 
 import {RouterModule} from '@angular/router';
 
-const myComponent = [CharactersDetailsComponent, CharactersListComponent]
+const myComponents = [CharactersDetailsComponent, CharactersListComponent]
 
 @NgModule({
-  declarations: [...myComponent],
-  imports: [CommonModule],
-  exports:[...myComponent]
+  declarations: [...myComponents],
+  imports: [CommonModule, RouterModule],
+  exports:[...myComponents]
 })
 export class CharactersModule { }
