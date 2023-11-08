@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 
 const myComponent = [CharactersDetailsComponent, CharactersListComponent]
 
+// ESSA COISA QUE TÁ ME MATANDO
 @NgModule({
   declarations: [...myComponent],
   imports: [CommonModule],
