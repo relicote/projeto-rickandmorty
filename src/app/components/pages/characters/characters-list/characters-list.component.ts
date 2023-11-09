@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Character } from '@app/shared/interface/character.interface';
 import { CharacterService } from '@app/shared/services/character.service';
 import { take } from 'rxjs/operators';
@@ -26,15 +27,17 @@ export class CharactersListComponent implements OnInit {
   private hideScrollHeight=200;
   private showScrollHeight = 500;
 
-  constructor(private characterSvc: CharacterService) { }
+  constructor(
+    private characterSvc: CharacterService,
+    private router:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getDataFromService();
   }
 
-  // private getCharactersByQuery():void{
-
-  // }
+  private getCharactersByQuery():void{
+    this
+  }
 
   private getDataFromService ():void{
     this.characterSvc
