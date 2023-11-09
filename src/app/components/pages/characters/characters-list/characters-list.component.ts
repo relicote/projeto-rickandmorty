@@ -5,7 +5,7 @@ import { take } from 'rxjs/operators';
 
 type RequestInfo ={
   next:string;
-}
+};
 
 @Component({
   selector: 'app-characters-list',
@@ -18,11 +18,11 @@ export class CharactersListComponent implements OnInit {
 
   info:RequestInfo = {
     next: null,
-  }
+  };
 
 
   private pageNum=1;
-  private query:string;
+  private query: string;
   private hideScrollHeight=200;
   private showScrollHeight = 500;
 
