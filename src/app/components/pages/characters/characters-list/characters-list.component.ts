@@ -31,10 +31,12 @@ export class CharactersListComponent implements OnInit {
     private characterSvc: CharacterService,
     private route: ActivatedRoute,
     private router: Router
-    ) { }
+    ) {
+      this.onUrlChanged();
+    }
 
   ngOnInit(): void {
-    // this.getDataFromService();
+    this.getDataFromService();
     this.getCharactersByQuery();
 
   }
@@ -64,6 +66,7 @@ export class CharactersListComponent implements OnInit {
 
 
   private getDataFromService ():void{
+    debugger
     this.characterSvc
     .searchCharacters(this.query, this.pageNum)
     .pipe(take(1))
