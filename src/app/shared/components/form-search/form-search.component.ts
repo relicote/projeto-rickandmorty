@@ -26,7 +26,7 @@ export class FormSearchComponent implements OnInit {
     console.log('Buscar->',value)
 
     if(value && value.length > 3){
-      this.router.navigate(['/character-list'],{
+      this.router.navigate(['/characters-list'],{
         queryParams:{q:value}
       })
     }

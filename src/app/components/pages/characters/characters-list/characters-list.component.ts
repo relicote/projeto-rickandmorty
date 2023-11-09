@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Character } from '@app/shared/interface/character.interface';
 import { CharacterService } from '@app/shared/services/character.service';
 import { take } from 'rxjs/operators';
@@ -29,14 +29,21 @@ export class CharactersListComponent implements OnInit {
 
   constructor(
     private characterSvc: CharacterService,
-    private router:ActivatedRoute) { }
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
-    this.getDataFromService();
+    // this.getDataFromService();
+    this.getCharactersByQuery();
   }
 
-  private getCharactersByQuery():void{
-    this
+  private getCharactersByQuery(): void{
+    this.route.queryParams.pipe(take(1)).subscribe((params: ParamMap) =>{
+      console.log('Params->', params)
+
+        this.query = params.get['q'];
+        this.getDataFromService();
+      })
   }
 
   private getDataFromService ():void{
@@ -45,13 +52,14 @@ export class CharactersListComponent implements OnInit {
     .pipe(take(1))
     .subscribe((res: any)=>{
 
-  if(res?.results?.lenght){
-    const {info, results} = res;
-    this.characters = [...this.characters, ...results ];
-    this.info = info;
-  }else{
-    this.characters=[];
-  }
+      if(res?.results?.lenght){
+        const {info, results} = res;
+        this.characters = [...this.characters, ...results];
+        this.info = info;
+
+      }else{
+        this.characters = []
+      }
 
     });
   }
