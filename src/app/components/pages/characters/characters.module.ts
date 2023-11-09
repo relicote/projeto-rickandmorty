@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {RouterModule} from '@angular/router'
 
+import { CharactersDetailsComponent } from '@characters/characters-details/characters-details.component';
+import { CharactersListComponent } from '@characters/characters-list/characters-list.component';
+
+const myComponent = [CharactersDetailsComponent,CharactersListComponent]
 
 // ESSA COISA QUE TÁ ME MATANDO
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [...myComponent],
+  imports: [CommonModule, RouterModule],
+  exports:[...myComponent]
 })
 export class CharactersModule { }
