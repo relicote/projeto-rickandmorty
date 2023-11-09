@@ -16,8 +16,8 @@ export class CharactersListComponent implements OnInit {
 
   characters:Character[] = [];
 
-  info:RequestInfo = {
-    next: null,
+  info: RequestInfo = {
+    next: '',
   };
 
 
@@ -33,15 +33,16 @@ export class CharactersListComponent implements OnInit {
   }
 
   private getDataFromService ():void{
-    this.characterSvc.searchCharacters(this.query, this.pageNum)
+    this.characterSvc
+    .searchCharacters(this.query, this.pageNum)
     .pipe(take(1))
-    .subscribe((res:any)=>{
+    .subscribe((res: any)=>{
       console.log('Response ->', res)
 
       const {info, results} = res;
       this.characters = [...this.characters, ...results ];
       this.info = info;
-    })
+    });
   }
 
 }
