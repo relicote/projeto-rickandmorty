@@ -32,16 +32,24 @@ export class CharactersListComponent implements OnInit {
     this.getDataFromService();
   }
 
+  // private getCharactersByQuery():void{
+
+  // }
+
   private getDataFromService ():void{
     this.characterSvc
     .searchCharacters(this.query, this.pageNum)
     .pipe(take(1))
     .subscribe((res: any)=>{
-      console.log('Response ->', res)
 
-      const {info, results} = res;
-      this.characters = [...this.characters, ...results ];
-      this.info = info;
+  if(res?.results?.lenght){
+    const {info, results} = res;
+    this.characters = [...this.characters, ...results ];
+    this.info = info;
+  }else{
+    this.characters=[];
+  }
+
     });
   }
 
