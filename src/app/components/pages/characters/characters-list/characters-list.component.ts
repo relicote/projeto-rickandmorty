@@ -37,14 +37,14 @@ export class CharactersListComponent implements OnInit {
     this.getCharactersByQuery();
   }
 
-  private getCharactersByQuery(): void{
-    this.route.queryParams.pipe(take(1)).subscribe((params: ParamMap) =>{
-      console.log('Params->', params)
-
-        this.query = params.get['q'];
-        this.getDataFromService();
-      })
+  private getCharactersByQuery(): void {
+    this.route.queryParams.pipe(take(1)).subscribe((params: ParamMap) => {
+      this.query = params['q'];
+      this.getDataFromService();
+    });
   }
+
+
 
   private getDataFromService ():void{
     this.characterSvc
