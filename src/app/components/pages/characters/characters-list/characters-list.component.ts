@@ -63,7 +63,7 @@ export class CharactersListComponent implements OnInit {
         this.info = info;
 
       }else{
-        this.characters = []
+        this.characters = [];
       }
 
     });

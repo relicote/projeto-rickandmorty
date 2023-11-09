@@ -23,7 +23,7 @@ export class FormSearchComponent implements OnInit {
 
   onSearch(value:string){
     // Validando se o valor inserido pelo usuário é maior que 3 caracteres, SE for, o valor passado será pesquisado pela váriavel VALUE
-    console.log('Buscar->',value)
+
 
     if(value && value.length > 3){
       this.router.navigate(['/character-list'],{
