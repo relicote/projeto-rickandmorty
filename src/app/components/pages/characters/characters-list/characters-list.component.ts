@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
 import { Character } from '@app/shared/interface/character.interface';
 import { CharacterService } from '@app/shared/services/character.service';
 import { filter, take } from 'rxjs/operators';
+
+import { DOCUMENT } from '@angular/common';
 
 type RequestInfo ={
   next:string;
@@ -28,6 +30,8 @@ export class CharactersListComponent implements OnInit {
   private showScrollHeight = 500;
 
   constructor(
+    @Inject(DOCUMENT) private document:Document,
+
     private characterSvc: CharacterService,
     private route: ActivatedRoute,
     private router: Router,
@@ -38,6 +42,9 @@ export class CharactersListComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  onScrollDown(){}
+  onScrollTop(){}
 
   private onUrlChanged():void{
     this.router.events
