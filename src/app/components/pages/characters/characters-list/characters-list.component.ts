@@ -37,7 +37,7 @@ export class CharactersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDataFromService();
-    this.getCharactersByQuery();
+    // this.getCharactersByQuery();
 
   }
 
