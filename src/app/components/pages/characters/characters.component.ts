@@ -18,6 +18,7 @@ import { Character } from "@app/shared/interface/character.interface";
         <h2>{{character.name | slice:0:15}}</h2>
       </a>
       <h4 class="text-muted">{{character.gender}}</h4>
+      <h4 class="text-muted">{{character.status}}</h4>
       <small class="text-muted">{{character.created | date}}</small>
     </div>
   </div>
