@@ -30,14 +30,13 @@ export class CharactersListComponent implements OnInit {
   constructor(
     private characterSvc: CharacterService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
     ) {
       this.onUrlChanged();
     }
 
   ngOnInit(): void {
-    this.getDataFromService();
-    // this.getCharactersByQuery();
+    this.getCharactersByQuery();
 
   }
 
@@ -54,19 +53,12 @@ export class CharactersListComponent implements OnInit {
 
   private getCharactersByQuery(): void {
     this.route.queryParams.pipe(take(1)).subscribe((params: Params) => {
-      console.log('Params->', params)
-
       this.query = params['q'];
       this.getDataFromService();
     });
   }
 
-
-
-
-
   private getDataFromService ():void{
-    debugger
     this.characterSvc
     .searchCharacters(this.query, this.pageNum)
     .pipe(take(1))
