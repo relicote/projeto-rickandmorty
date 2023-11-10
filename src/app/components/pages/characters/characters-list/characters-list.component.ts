@@ -23,6 +23,8 @@ export class CharactersListComponent implements OnInit {
     next: '',
   };
 
+  showGoUpButton = false;
+
 
   private pageNum=1;
   private query: string;
@@ -51,6 +53,15 @@ export class CharactersListComponent implements OnInit {
   }
 
   @HostListener('window:scroll',[])
+  onWindowScroll(): void{
+    const yOffSet = window.pageYOffset;
+    if((yOffSet || this.document.documentElement.scrollTop || this.document.body.scrollTop) > this.showScrollHeight){
+      this.showGoUpButton = true;
+    } else if(this.showGoUpButton && (yOffSet || this.document.documentElement.scrollTop || this.document.body.scrollTop) < this.hideScrollHeight) {
+    this.showGoUpButton = false;
+    }
+
+  }
 
   onScrollTop(): void{
     this.document.body.scrollTop = 0; //safari
