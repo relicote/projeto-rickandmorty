@@ -64,7 +64,7 @@ export class CharactersListComponent implements OnInit {
   }
 
   onScrollTop(): void{
-    this.document.body.scrollTop = 0; //safari
+    // this.document.body.scrollTop = 0; //safari
     this.document.documentElement.scrollTop = 0; //outros navegadores
   }
 
