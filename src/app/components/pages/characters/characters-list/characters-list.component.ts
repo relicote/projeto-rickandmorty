@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, inject } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
 import { Character } from '@app/shared/interface/character.interface';
 import { CharacterService } from '@app/shared/services/character.service';
@@ -43,8 +43,19 @@ export class CharactersListComponent implements OnInit {
 
   }
 
-  onScrollDown(){}
-  onScrollTop(){}
+  onScrollDown(): void{
+    if(this.info.next){
+      this.pageNum++;
+      this.getDataFromService();
+    }
+  }
+
+  @HostListener('window:scroll',[])
+
+  onScrollTop(): void{
+    this.document.body.scrollTop = 0; //safari
+    this.document.documentElement.scrollTop = 0; //outros navegadores
+  }
 
   private onUrlChanged():void{
     this.router.events
