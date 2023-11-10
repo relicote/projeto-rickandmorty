@@ -11,7 +11,7 @@ type RequestInfo ={
 @Component({
   selector: 'app-characters-list',
   templateUrl: './characters-list.component.html',
-  styleUrls: ['./characters-list.component.scss']
+  styleUrls: ['./characters-list.component.scss'],
 })
 export class CharactersListComponent implements OnInit {
 
@@ -36,14 +36,12 @@ export class CharactersListComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.getCharactersByQuery();
 
   }
 
   private onUrlChanged():void{
-    // Router
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd))
+    this.router.events
+    .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(()=>{
           this.characters=[];
           this.pageNum = 1;
